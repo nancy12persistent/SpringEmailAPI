@@ -12,10 +12,10 @@ public class EmailSenderService {
 	@Autowired
 	private JavaMailSender mailSender;
 	
-	public void sendEmail(String toEmail, String subject, String body) {
+	public void sendEmail(String subject, String body) {
 		SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom("nancygupta7799@gmail.com");
-		message.setTo(toEmail);
+		message.setTo(sendEmailIds());
 		message.setText(body);
 		message.setSubject(subject);
 		
@@ -24,6 +24,14 @@ public class EmailSenderService {
 		
 		System.out.println("Mail Sent Successfully....");
 	}
+
+	
+	public String[] sendEmailIds() {
+		String[] emailIds = new String[2];
+		emailIds[0] = "nancygupta426@gmail.com";
+		emailIds[1] = "kavitag767@gmail.com";
+		return emailIds;
+		}
 	
 	
 }
